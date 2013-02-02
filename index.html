@@ -4,16 +4,17 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+		<title>Using Modernizr | Amigos HTML5 & CSS3 Conference | Eric Phetteplace</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+		<meta name="description" content="Presentation on using the Modernizr JavaScript library to provide fallbacks when utilizing modern HTML & CSS features that are not supported in older browsers.">
+		<meta name="author" content="Eric Phetteplace">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 		<link rel="stylesheet" href="css/reveal.min.css">
-		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+		<link rel="stylesheet" href="css/theme/sky.css" id="theme">
+		<link rel="stylesheet" href="css/custom.css">
 
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -36,305 +37,278 @@
 			<div class="slides">
 
 				<section>
-					<h1>Reveal.js</h1>
-					<h3>HTML Presentations Made Easy</h3>
-					<p>
-						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
-					</p>
-				</section>
-
-				<section>
-					<h2>Heads Up</h2>
-					<p>
-						reveal.js is a framework for easily creating beautiful presentations using HTML. You'll need a browser with
-						support for CSS 3D transforms to see it in its full glory.
-					</p>
-
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-					</aside>
-				</section>
-
-				<!-- Example of nested vertical slides -->
-				<section>
-					<section>
-						<h2>Vertical Slides</h2>
-						<p>
-							Slides can be nested inside of other slides,
-							try pressing <a href="#" class="navigate-down">down</a>.
-						</p>
-						<a href="#" class="image navigate-down">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 1</h2>
-						<p>Press down or up to navigate.</p>
-					</section>
-					<section>
-						<h2>Basement Level 2</h2>
-						<p>Cornify</p>
-						<a class="test" href="http://cornify.com">
-							<img width="280" height="326" src="https://s3.amazonaws.com/hakim-static/reveal-js/cornify.gif" alt="Unicorn">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 3</h2>
-						<p>That's it, time to go back up.</p>
-						<a href="#/2" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-				</section>
-
-				<section>
-					<h2>Point of View</h2>
-					<p>
-						Press <strong>ESC</strong> to enter the slide overview. Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
-					</p>
-				</section>
-
-				<section>
-					<h2>rvl.io</h2>
-					<p>
-						If you don't like writing slides in HTML you can use the online editor <a href="http://www.rvl.io" target="_blank">rvl.io</a>.
-					</p>
-				</section>
-
-				<section>
-					<h2>Works in Mobile Safari</h2>
-					<p>
-						Try it out! You can swipe through the slides and pinch your way to the overview.
-					</p>
-				</section>
-
-				<section>
-					<h2>Marvelous Unordered List</h2>
-					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>Fantastic Ordered List</h2>
-					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
-					</ol>
-				</section>
-
-				<section data-markdown>
-					<script type="text/template">
-						## Markdown support
-
-						For those of you who like that sort of thing. Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
-
-							<section data-markdown>
-							  ## Markdown support
-
-							  For those of you who like that sort of thing.
-							  Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
-							</section>
-					</script>
-				</section>
-
-				<section id="transitions">
-					<h2>Transition Styles</h2>
-					<p>
-						You can select from different transitions, like: <br>
-						<a href="?transition=cube#/transitions">Cube</a> -
-						<a href="?transition=page#/transitions">Page</a> -
-						<a href="?transition=concave#/transitions">Concave</a> -
-						<a href="?transition=zoom#/transitions">Zoom</a> -
-						<a href="?transition=linear#/transitions">Linear</a> -
-						<a href="?transition=fade#/transitions">Fade</a> -
-						<a href="?transition=none#/transitions">None</a> -
-						<a href="?#/transitions">Default</a>
-					</p>
-				</section>
-
-				<section id="themes">
-					<h2>Themes</h2>
-					<p>
-						Reveal.js comes with a few themes built in: <br>
-						<a href="?theme=sky#/themes">Sky</a> -
-						<a href="?theme=beige#/themes">Beige</a> -
-						<a href="?theme=simple#/themes">Simple</a> -
-						<a href="?theme=serif#/themes">Serif</a> -
-						<a href="?theme=night#/themes">Night</a> -
-						<a href="?#/themes">Default</a>
-					</p>
-					<p>
+					<h1 class="title"><span class="odd">use</span><br>
+						<span>HTML5</span><br>
+						<span class="odd">&</span><br>
+						<span>CSS3</span><br>
+						<!-- need 2 spaces cuz of negative letter-spacing -->
+						<span class="odd">today&nbsp;&nbsp;with</span><br>
+						<span>Modernizr</span>
+					</h1>
+					<p class="c1-of-2">
 						<small>
-							* Theme demos are loaded after the presentation which leads to flicker. In production you should load your theme in the <code>&lt;head&gt;</code> using a <code>&lt;link&gt;</code>.
+						Eric Phetteplace<br>
+						Emerging Technologies Librarian<br>
+						Chesapeake College
+						</small>
+					</p>
+					<p class="c1-of-2">
+						<small>
+						<a href="//twitter.com/phette23">@phette23</a><br>
+						<a href="//phette.net">phette.net</a><br>
+						<a href="//github.com/phette23">github.com/phette23</a>
 						</small>
 					</p>
 				</section>
 
 				<section>
-					<section data-state="alert">
-						<h2>Global State</h2>
-						<p>
-							Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-							will be added as a class to the document element when the slide is open. This lets you
-							apply broader style changes, like switching the background.
-						</p>
-						<a href="#" class="image navigate-down">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section data-state="blackout">
-						<h2>"blackout"</h2>
-						<a href="#" class="image navigate-down">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section data-state="soothe">
-						<h2>"soothe"</h2>
-						<a href="#" class="image navigate-next">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(-90deg);">
-						</a>
-					</section>
-				</section>
-
-				<section data-state="customevent">
-					<h2>Custom Events</h2>
-					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-					</p>
-					<pre><code contenteditable style="font-size: 18px; margin-top: 20px;">Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
+					<h1>The Problem</h1>
+					<p>You want to use modern features today<br>
+						but they're not supported in every browser</p>
+					<img alt="accidentally opened Internet Explorer, horror face" src="img/ie.png">
+					<aside class="notes">
+						Look, we all know HTML5 & CSS3 are awesome. Geolocation, CSS animations, video elements; they're awesome. So you go and design a beautiful site. It looks amazing; everything has a gradient, buttons and icons wiggle with animations. It pops up an alert every time the user sneezes. It tells them the room temperature and recommends an appropriate drink. But then...you accidentally open it in IE 8. & it's awful; the border backgrounds don't show, your gradients are crusehd to flat colors, nothing's animated, it spews errors because your scripts are accessing objects that don't exist. What do you do to get around this?
+					</aside>
 				</section>
 
 				<section>
-					<h2>Clever Quotes</h2>
-					<p>
-						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						The nice thing about standards is that there are so many to choose from</q> and block:
-					</p>
-					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.
-					</blockquote>
+					<h1>Approaches</h1>
+					<ul style="list-style-type:none;">
+						<li>IE Conditional Comments</li>
+						<li>User Agent Sniffing</li>
+						<li>Live & Let Die</li>
+					</ul>
+					<aside class="notes">
+						We have a few tools to help us with this conundrum. If you've worked on the web for a fair amount of time, you're probably familiar with all of these techniques. I want to briefly review them but also note how they fundamentally fall short.
+					</aside>
 				</section>
 
 				<section>
-					<h2>Pretty Code</h2>
-					<pre><code contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
+					<h1>I'm a web developer;<br>
+						I'll blame IE!</h1>
+					<aside class="notes">
+						But we're used to this, right? Web developers have been working around IE quirks for decades now and we have a long history of tools to do so, from the star hack to IE conditional comments.
+					</aside>
+				</section>
 
-    var nodes = document.querySelectorAll( selector );
+				<section>
+					<h1 class="fragment pop-text"
+					style="position:absolute;left:13%;top:5%;" id="invalid-arg">Your<br>
+						Argument<br>
+						is Invalid</h1>
+					<img id="many-devices-1" src="img/many-devices.jpg" alt="dozens of tablets computers">
+					<aside class="notes">
+						The problem isn't IE; its variability between browsers. Quick question: does Android Browser 2.3 support the contentEditable attribute? The Device Orientation event? CSS3 gradients? Inline SVG?
+						Answer: contentEditable, Device Orientation, & SVG = no, CSS gradients yes.
+					</aside>
+				</section>
 
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
-
-      if( !node.className ) ) {
-        node.className += ' roll';
-      }
-    };
-  }
+				<section>
+					<h2>User Agent Sniffing</h2>
+					<div class="grid">
+						<div class="c1-of-2"><img src="img/sniffing-dog.jpg" alt="sniffing dog cartoon" height="200" width="200" style="float:right;"></div>
+						<div class="c1-of-2"><img src="img/android.jpg" alt="Android logo" height="200" width="200" style="float:left;"></div>
+					</div>
+<pre><code>if ( navigator.userAgent.match(/Android 2\.[0-3]/) ) {
+	oopsNoDeviceOrientation();
+	oopsNoSVG();
+	oopsNoContentEditable();
 }
-					</code></pre>
-					<p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
+</code></pre>
+					<aside class="notes">
+						Another approach, one which works for almost any browser, is to detect the User Agent and then make tactical decisions based on that information.
+						There are two fundamental issues with this. First of all, UA strings are not a reliable source of information; they can be spoofed & new browsers tend to mimic old ones precisely to work around poorly written UA sniffing. While "new browsers" may not seem like a big deal, consider all the mobile apps that use a browser window; any of those might choose its own UA string. InstaPaper & Twitter, I'm fairly certain, use their own UA strings despite being webkit-based browsers.
+						Secondly—and more importantly—they present a maintenance challenge. As new browsers appear & features are added or altered, UA string lists need to be updated. Even if you try to use a central crowdsourced repository, the mere effort of pulling down updates periodically is obnoxious. Furthermore, while there are projects that try to track all mobile device UAs, I'm not sure there's any comprehensive database of UA strings paired to features & even if there were the added delay in querying a database is a bit of extra overhead.
+					</aside>
 				</section>
 
 				<section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,
-						<a href="#/2/3">like this</a>.
-					</p>
+					<h2 class="fragment pop-text" style="position:absolute;left:20%;top:28%;" id="did-i-not">Did I Not<br>
+						Just Show<br>
+						You This Slide?</h2>
+					<img src="img/many-devices.jpg" alt="dozens of latops, tablets, & phones laid out" id="many-devices-2">
+					<aside class="notes">
+						Um, that doesn't solve the fundamental problem. Great, now we're prepared for IE and Android; what about the thousands of other browser versions out there and the various devices they run on?
+					</aside>
 				</section>
 
 				<section>
+					<h1>Live & Let Die</h1>
+					<p>a.k.a. "ignoring older browsers"</p>
+					<aside class="notes">
+						An increasing number of sites have opted for the "do nothing" approach of simply using modern features without any fallback, knowing that sites will break in older browsers. It's interesting to me that this is happening in the midst of the great Responsive Web Design paradigm shift which says that all devices deserve a decent experience no matter their screen width.
+						Whether or not you think RWD is the right approach all the time, it's inarguably in the spirit of the web; open access to information. & not doing anything & cutting off users is a step backwards. Especially since we have the means nowadays—& I'm thinking not only of media queries, & JavaScript libraries like Modernizr, but a general development philosophy—it's never been more irresponsible to let a site break for certain users.
+						E.g. http://www.msvma.org/Default.aspx?pageId=1344425
+					</aside>
+				</section>
+
+				<section>
+					<h1>Enter Modernizr</h1>
+					<p>One of the web's most popular JavaScript libraries</p>
+					<a href="http://trends.builtwith.com/javascript/Modernizr" title="Modernizr Trends | BuiltWith.com"><img src="img/builtwith-modernizr.png" alt="Modernizr usage trends from Built With"></a>
+					<aside class="notes">
+						Our original scenario is exactly waht Modernizr was designed for. Modernizr allows you to branch your site's appearance based on browser capabilities, providing an easy opportunity to fallback when necessary.
+						It's important that Modernizr *is not* a user-agent detection library. It's also very lightweight & carries no dependencies. Overall, it's the perfect tool for the modern web developer who wants to use HTML5 & CSS3 in a responsible manner without too much overhead.
+					</aside>
+				</section>
+
+								<section>
+					<div class="c1-of-2">
+						<h2>With Modernizr</h2>
+<pre><code>.no-svg {
+  background-image: url(fallback.png);
+}
+</code></pre>
+					</div>
+					<div class="c1-of-2">
+						<h2>Without Modernizr</h2>
+<pre><code>if ( navigator.userAgent.match( <span class="fragment highlight-green">hugeListOfUAsThatDontSupportSVG</span> ) ) {
+  $( 'div > .svg-wrapper' )
+  .css( { "background-image":
+  "url(fallback.png)" } );
+}
+</code></pre>
+					</div>
+					<aside class="notes">
+						If _what_ Modernizr does is great, _how_ it does it is also wonderful. Part of the reason why Modernizr is so successful, in my opinion, is the brilliance of its API. It's both quite simple so that designers who don't know a lick of JavaScript can employ it, but also provides advanced hooks for those who want to use it their scripting.
+						Essentially, you provide fallbacks by writing CSS rules for the features that aren't available; if svg isn't available, this no-svg rule will kick in. Implementing this in any other manner is both non-trivial & a maintenance nightmare; on the right I'm trying to do the same thing but with JavaScript. I have to detect the user agent—always a bad idea—then check it against a huge regular expression of browsers I know don't support SVG, then apply a style change using JavaScript. Every time a new browser appears, I have to go back & check my huge list of UAs to see if it needs updating.
+					</aside>
+				</section>
+
+				<section>
+
 					<section>
-						<h2>Fragmented Views</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<ol>
-							<li class="fragment"><code>any type</code></li>
-							<li class="fragment"><em>of view</em></li>
-							<li class="fragment"><strong>fragments</strong></li>
-						</ol>
-
+						<h1>Using Modernizr</h1>
+						<p>index.html</p>
+<pre><code>&lt;html <span class="fragment highlight-green">class="no-js"</span>&gt;
+	&lt;head&gt;
+		&lt;title&gt;Awesome Website&lt;/title&gt;
+		<span class="fragment highlight-green">&lt;script src="modernizr.test.js"&gt;&lt;/script&gt;</span>
+	&lt;/head&gt;
+...
+</code></pre>
 						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
+							Using Modernizr is pretty simple, you just do two things: include the Modernizr script in the head & add a class of "no-js" to the HTML tag. Now, it's important to do this exactly; while you want to load most of your scripts down at the bottom of the page to avoid blocking, Modernizr needs to be at the top because a lot of your styles will be dependent upon its execution.
+							The second step relates to how Modernizr functions; it operates by adding classes to the HTML element. But what if JavaScript is disabled & Modernizr cannot execute? Then the "no-js" class will remain and you'll still know what's up.
 						</aside>
 					</section>
+
 					<section>
-						<h2>Fragment Styles</h2>
-						<p>There's a few styles of fragments, like:</p>
-						<p class="fragment grow">grow</p>
-						<p class="fragment shrink">shrink</p>
-						<p class="fragment roll-in">roll-in</p>
-						<p class="fragment fade-out">fade-out</p>
-						<p class="fragment highlight-red">highlight-red</p>
-						<p class="fragment highlight-green">highlight-green</p>
-						<p class="fragment highlight-blue">highlight-blue</p>
+						<h1>Pseudo-Modernizr</h1>
+<pre><code>var docElement = document.documentElement;
+
+docElement.className = docElement.className.replace(/(^|\s)no-js(\s|$)/, '$1$2') + ' js';
+
+if (<span class="fragment highlight-green">!!document.createElementNS && !!document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect</span>) {
+	docElement.className += ' svg';
+	} else {
+	docElement.className += ' no-svg';
+	}
+</code></pre>
+						<aside class="notes">
+							Modernizr works by running a series of feature tests and then, depending upon the result, adding a class to the HTML element.
+							Here's an example test; it borrows a little from Modernizr but isn't identical. Basically, we remove the "no-js" class and then add a class of "js". Then we run the test for SVG. The test makes sure that "document.createElementNS" exists and that it has a method that can create an SVG rectangle.
+						</aside>
 					</section>
+
+					<section>
+						<h1>Afterwards...</h1>
+						<p>index.html</p>
+<pre><code>&lt;html class=" js svg"&gt;
+	&lt;head&gt;
+		&lt;title&gt;Awesome Website&lt;/title&gt;
+		&lt;script src="modernizr.svg.js"&gt;&lt;/script&gt;
+	&lt;/head&gt;
+...
+</code></pre>
+						<div class="fragment">
+							<p>style.css</p>
+<pre><code style="padding:.5em;">.no-js svg { display: none; }
+.svg svg { display: block; }
+.no-svg .svg-wrapper { background-image: url(fallback.png); }
+</code></pre>
+						</div>
+						<aside class="notes">
+							So the end result is just a different set of classes on the HTML element. This makes it very easy to target all your styles in CSS.
+						</aside>
+					</section>
+
 				</section>
 
 				<section>
-					<h2>Spectacular image!</h2>
-					<a class="image" href="http://lab.hakim.se/meny/" target="_blank">
-						<img width="320" height="299" src="http://s3.amazonaws.com/hakim-static/portfolio/images/meny.png" alt="Meny">
-					</a>
+					<h2>There is no single Modernizr.js</h2>
+<pre class="fragment"><code>&lt;html lang="en" xml:lang="en" class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths cufon-active cufon-ready"&gt;
+</code></pre>
+					<aside class="notes">
+						Always use a custom Modernizr build that tests just for the features you need. Running the entire Modernizr development build is very bad practice; it downloads & executes unnecessary code. Modernizr is a lightning-fast library so this isn't fatal but it is a bad idea.
+						You'll also end up with dozens of classes strung off your html tag which can cause conflicts if you're not careful about naming your own CSS classes. This is an example from an actual, production website that's including the whole library for no particular reason.
+					</aside>
 				</section>
 
 				<section>
-					<h2>Export to PDF</h2>
-					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, below is an example that's been uploaded to SlideShare.</p>
-					<iframe id="slideshare" src="http://www.slideshare.net/slideshow/embed_code/13872948" width="455" height="356" style="margin:0;overflow:hidden;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen> </iframe>
-					<script>
-						document.getElementById('slideshare').attributeName = 'allowfullscreen';
-					</script>
+					<h2>Choices, Choices...</h2>
+					<a href="http://modernizr.com/download/" title="Modernizr download choices"><img src="img/modernizr-opts.png" alt="all the checkboxes on the Modernizr build screen"></a>
+					<aside class="notes">
+						...
+					</aside>
 				</section>
 
 				<section>
-					<h2>Take a Moment</h2>
+					<h1>Polyfills</h1>
+					<aside class="notes">
+						Polyfills are JavaScript libraries that replace modern features. Essentially, they try to emulate or replace missing functionality so that users in older browsers have a comparable experience.
+						Modernizr is designed with polyfills in mind, because a lot of the time a mere CSS fork is not enough to preserve the user experience.
+					</aside>
+				</section>
+
+				<section>
+					<h2>Modernizr.load()</h2>
+<pre><code>Modernizr.load( {
+	test: Modernizr.geolocation,
+	nope: "no-geolocation.js"
+} );
+</code></pre>
+					<p class="fragment">advanced Modernizr.load()</p>
+<pre class="fragment"><code>Modernizr.load([{
+    test : Modernizr.fontface && Modernizr.canvas && Modernizr.cssgradients,
+    nope : ['presentational-polyfill.js', 'presentational.css']
+  },
+  {
+    test : Modernizr.websockets && window.JSON,
+    nope : 'functional-polyfills.js',
+    both : [ 'app.js', 'extra.js' ],
+    complete : function () { myApp.init(); }
+  },
+  'post-analytics.js'
+]);
+</code></pre>
+					<aside class="notes">
+						Modernizr comes with its own built-in script loader that you can use to seamlessly load your polyfills based upon the results of its tests. Essentially, you specify a Modernizr test & then, if it's false, the resources under the "nope" parameter are loaded.
+						It can get a lot more complex than that, in fact Modernizr.load is its own separate JavaScript library known as yepnope. You can do some pretty complex things, from specifying multiple tests, to loading arrays of resources, to executing a function upon completed loading. I have yet to come across a use case that's as complex as this one, while I stole from the Modernizr documentation, but if you're developing full-fledged HTML5 apps I imagine this sort of routine is fairly common.
+					</aside>
+				</section>
+
+				<section>
+					<h1>Modernizr is not a Superhero</h1>
+					<!-- img of superhero -->
+					<aside class="notes">
+						Modernizr puts you in good shape but it's important to understand what it will not do:
+						- Modernizr doesn't write your fallbacks for you, it just provides hooks so that you know when to employ them. On a complicated site with lots of modern features, you need to plan carefully for every contingency. Make sure that any combination of missing features still yields a good experience.
+						- Speaking of which, you can easily overuse Modernizr. If you find yourself writing fallbacks like ".no-svg.no-border-image.no-url-data-uri" then you may want to revisit how complex and maintainable your code is.
+						- Modernizr won't work without JavaScript, thus the "no-js" class on your html root so that you can tell when Modernizr wasn't able to execute and provide you with information. To be honest, I personally do not worry too much about users with JavaScript turned off because they tend to be A) an extremely small proportion of traffic, & B) power users employing NoScript. Those users are familiar with broken sites and know to selectively allow scripts to execute when sites appear unusable.
+					</aside>
+				</section>
+
+				<section>
+					<h1>Thanks!</h1>
+					<br>
+					<h2 class="fragment highlight-red">¿Questions?</h2>
+					<br>
 					<p>
-						Press b or period on your keyboard to enter the 'paused' mode. This mode is helpful when you want to take distracting slides off the screen
-						during a presentation.
+						Eric Phetteplace<br>
+						<a href="http://twitter.com/phette23" title="my Twitter">@phette23</a><br>
+						<a href="http://phette.net" title="my personal website">phette.net</a>
 					</p>
-				</section>
-
-				<section>
-					<h2>Stellar Links</h2>
-					<ul>
-						<li><a href="https://github.com/hakimel/reveal.js">Source code on GitHub</a></li>
-						<li><a href="http://hakim.se/projects/reveal-js">Leave feedback on my site</a></li>
-						<li><a href="http://twitter.com/hakimel">Follow me on Twitter</a></li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>It's free</h2>
-					<p>
-						reveal.js and <a href="http://www.rvl.io">rvl.io</a> are entirely free but if you'd like to support the projects you can donate below.
-						Donations will go towards hosting and domain costs.
-					</p>
-					<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-						<input type="hidden" name="cmd" value="_donations">
-						<input type="hidden" name="business" value="hakim.elhattab@gmail.com">
-						<input type="hidden" name="lc" value="US">
-						<input type="hidden" name="item_name" value="reveal.js / rvl.io">
-						<input type="hidden" name="no_note" value="0">
-						<input type="hidden" name="currency_code" value="USD">
-						<input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_LG.gif:NonHostedGuest">
-						<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-					</form>
-				</section>
-
-				<section>
-					<h1>THE END</h1>
-					<h3>BY Hakim El Hattab / hakim.se</h3>
 				</section>
 
 			</div>
@@ -343,6 +317,7 @@ function linkify( selector ) {
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.min.js"></script>
+		<script src="js/custom.js"></script>
 
 		<script>
 

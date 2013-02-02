@@ -1,0 +1,66 @@
+$red: red;
+$maroon: maroon;
+$green-bg: #1E842D;
+
+.reveal {
+    .grid {
+        width: 100%;
+    }
+
+    .grid:after {
+        display: table;
+        content: "";
+        clear: both;
+    }
+
+    .c1-of-2 {
+        float: left;
+        width: 50%;
+    }
+
+    // excessive top padding
+    .slides > section {
+        padding-top: 0;
+    }
+
+    // for title page only
+    h1 {
+        &.title {
+            line-height: .55;
+            margin-bottom: .6em;
+        }
+
+        > span {
+            font-size: 0.4em;
+            font-weight: bold;
+            letter-spacing: 4px;
+            color: $maroon;
+            &.odd {
+                letter-spacing: -8px;
+                font-weight: 400;
+                color: $red;
+            }
+        }
+    }
+
+    .pop-text {
+        color: $red;
+        text-shadow: 3px 3px 0 black,
+            3px -3px 0 black,
+            -3px -3px 0 black,
+            -3px 3px 0 black;
+        font-weight: bold;
+    }
+
+    // redo highlighting, which originally didn't work in code samples
+    pre > code .fragment.highlight-green.visible {
+        color: inherit !important;
+        background-color: $green-bg;
+    }
+
+    // new "fade" pseudo-fragment implemented in custom.js
+    .fade-img {
+            -webkit-filter: brightness(40%);
+        filter: brightness(40%);
+    }
+}
