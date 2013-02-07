@@ -58,11 +58,20 @@ $green-bg: #1E842D;
 
     .pop-text {
         color: $red;
-        text-shadow: 3px 3px 0 black,
-            3px -3px 0 black,
-            -3px -3px 0 black,
-            -3px 3px 0 black;
+        // this is basically a text-stroke polyfill
+        // needed on Firefox but looks sort of awful
+        // text-shadow: 3px 3px 0 #000,
+        //     3px -3px 0 #000,
+        //     -3px -3px 0 #000,
+        //     -3px 3px 0 #000;
+            -webkit-text-stroke: 3px #000;
+        text-stroke: 3px #000;
         font-weight: bold;
+        font-family: 'Open Sans', sans-serif;
+        // fix filtered img displaying over pop-text
+        &.visible {
+            z-index: 1;
+        }
     }
 
     // redo highlighting, which originally didn't work in code samples
