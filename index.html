@@ -113,8 +113,12 @@
 				<section>
 					<h2>User Agent Sniffing</h2>
 					<div class="grid">
-						<div class="c1-of-2"><img src="img/sniffing-dog.jpg" alt="sniffing dog cartoon" height="200" width="200" style="float:right;"></div>
-						<div class="c1-of-2"><img src="img/android.jpg" alt="Android logo" height="200" width="200" style="float:left;"></div>
+						<div class="c1-of-2">
+							<img src="img/sniffing-dog.jpg" alt="sniffing dog" height="200" width="200" style="float:right;border-right:0;">
+						</div>
+						<div class="c1-of-2">
+							<img src="img/android.jpg" alt="Android logo" height="200" width="200" style="float:left;border-left:0;box-shadow:0 0 0;">
+						</div>
 					</div>
 <pre><code>if ( navigator.userAgent.match(/Android 2\.[0-3]/) ) {
 	oopsNoInlineSVG();
@@ -256,18 +260,17 @@ if (<span class="fragment highlight-green">div.firstChild.namespaceURI == "http:
 		&lt;title&gt;Awesome Website&lt;/title&gt;
 		&lt;script src="modernizr.svg.js"&gt;&lt;/script&gt;
 	&lt;/head&gt;
-...
 </code></pre>
 						<div class="fragment">
 							<p>style.css</p>
-<pre><code style="padding:.5em;">.inlinesvg svg {
-	display: block;
-}
+<pre><code style="padding:.5em;">.inlinesvg svg { display: block; }
+
 .no-inlinesvg .svg-wrapper, .no-js .svg-wrapper {
 	background: url(fallback.png) no-repeat;
 }
 </code></pre>
 						</div>
+						<p class="fragment">Let's see <a href="examples/svg-gradients.html" target="_blank">an example</a>.</p>
 						<aside class="notes">
 							The end result is just a different set of classes on the HTML element. If the browser supports inline SVG, we'll get an "inlinesvg" class on the HTML tag; if not, it'll be "no-inlinesvg." The class names are always formatted this way; either "feature name" or "no hyphen feature name" so you never have to think too hard about what to name your classes.
 
@@ -275,6 +278,9 @@ if (<span class="fragment highlight-green">div.firstChild.namespaceURI == "http:
 							This naming convention makes it easy to write fallback rules in our CSS. These three CSS selectors cover all our possible situations. If SVG is available, the first rule just makes sure that our SVG element is displayed. If we don't have SVG around, we put up a background-image in its place. This image could just be the PNG export from Inkscape or Adobe Illustrator of our SVG file. Finally, if JavaScript is disabled & Modernizr didn't execute we can't be sure about the browser capabilities so, just to be safe, we use the background image.
 
 							I hope now everyone sees why Modernizr is so excellent. We didn't need to write a lick of JavaScript to provide what are essentially two branches of our CSS. Browsers will now receive an experience appropriate to their capabilities & we don't need to update a User Agent list to keep our fallback in place.
+
+							>>>STEP>>>
+							So far, I've shown you code samples in my slides but let's see an actual example in a couple different browsers.
 						</aside>
 					</section>
 
@@ -388,6 +394,14 @@ if (<span class="fragment highlight-green">div.firstChild.namespaceURI == "http:
 					</section>
 
 				</section>
+
+				<sections>
+					<h1>Tools</h1>
+					<ul>
+						<li><a href="http://haz.io" title="see feature support in current browser">haz.io</a></li>
+						<li><a href="http://caniuse.com/" title="compatibility tables for web standards">Can I use...</a></li>
+					</ul>
+				</sections>
 
 				<section>
 					<h1>Thanks!</h1>
