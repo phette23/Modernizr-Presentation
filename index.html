@@ -279,7 +279,7 @@ if (<span class="fragment highlight-green">div.firstChild.namespaceURI == "http:
 
 							I hope now everyone sees why Modernizr is so excellent. We didn't need to write a lick of JavaScript to provide what are essentially two branches of our CSS. Browsers will now receive an experience appropriate to their capabilities & we don't need to update a User Agent list to keep our fallback in place.
 
-							>>>STEP>>>
+							>>>CLICK>>>
 							So far, I've shown you code samples in my slides but let's see an actual example in a couple different browsers.
 						</aside>
 					</section>
@@ -325,28 +325,29 @@ if (<span class="fragment highlight-green">div.firstChild.namespaceURI == "http:
 					<h2>Modernizr.load()</h2>
 <pre><code class="javascript">Modernizr.load( {
 	test: Modernizr.geolocation,
-	nope: "no-geolocation.js"
+	nope: "geolocation.js"
 } );
 </code></pre>
 					<p class="fragment">advanced Modernizr.load()</p>
 <pre class="fragment"><code>Modernizr.load([{
     test : Modernizr.fontface && Modernizr.canvas && Modernizr.cssgradients,
-    nope : ['presentational-polyfill.js', 'presentational.css']
-  },
-  {
-    test : Modernizr.websockets && window.JSON,
+    nope : [ 'presentational-polyfill.js' , 'presentational.css' ] }
+    , { test : Modernizr.websockets && window.JSON,
     nope : 'functional-polyfills.js',
     both : [ 'app.js', 'extra.js' ],
-    complete : function () { myApp.init(); }
-  },
-  'post-analytics.js'
+    complete : function () { myApp.init(); }, }
+    , 'post-analytics.js'
 ]);
 </code></pre>
+					<p class="fragment">Let's see <a href="examples/form.html" title="HTML5 form with Modernizr" target="_blank">a more complex example</a>.</p>
 					<aside class="notes">
 						You probably didn't notice the "Modernizr.load" checkbox on the download builder, hidden amongst the plethora of options. Modernizr.load is the library's own built-in script loader that you can use to seamlessly load your polyfills based upon the results of its tests. Essentially, you specify a Modernizr test & then, if it's false, the resources under the "nope" parameter are loaded.
 
 						>>>STEP>>>
 						It can get a lot more complex than that, in fact Modernizr.load is its own separate JavaScript library known as yepnope. You can do some pretty complex things, from specifying multiple tests, to loading arrays of resources, to executing a function upon completed loading. I personally have yet to come across a use case that's as complex as this one, which I stole from the Modernizr documentation, but if we're developing full-fledged HTML5 apps this sort of routine would be fairly common.
+
+						>>>CLICK>>>
+						Here's a much more sophisticated example that polyfills several of HTML5's incredibly useful form features such as the new attributes and input types.
 					</aside>
 				</section>
 
@@ -395,13 +396,14 @@ if (<span class="fragment highlight-green">div.firstChild.namespaceURI == "http:
 
 				</section>
 
-				<sections>
+				<section>
 					<h1>Tools</h1>
 					<ul>
 						<li><a href="http://haz.io" title="see feature support in current browser">haz.io</a></li>
 						<li><a href="http://caniuse.com/" title="compatibility tables for web standards">Can I use...</a></li>
+						<li><a href="https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills" title="Modernizr's list of polyfills">The All-In-One Entirely-Not-Alphabetical No-Bullsh*t Guide to HTML5 Fallbacks</a></li>
 					</ul>
-				</sections>
+				</section>
 
 				<section>
 					<h1>Thanks!</h1>
