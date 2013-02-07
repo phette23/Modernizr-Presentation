@@ -1,8 +1,21 @@
-$red: red;
-$maroon: maroon;
+$red: #FF4D4D;
+$maroon: #560909;
 $green-bg: #1E842D;
 
 .reveal {
+
+    // undo word-breaking rules, look terrible in Firefox
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+            -moz-hyphens: none;
+            -webkit-hyphens: none;
+        hyphens: none;
+        word-break: normal;
+    }
     .grid {
         width: 100%;
     }

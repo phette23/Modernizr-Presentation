@@ -316,7 +316,7 @@ if (<span class="fragment highlight-green">div.firstChild.namespaceURI == "http:
 
 				<section>
 					<h2>Modernizr.load()</h2>
-<pre><code>Modernizr.load( {
+<pre><code class="javascript">Modernizr.load( {
 	test: Modernizr.geolocation,
 	nope: "no-geolocation.js"
 } );
@@ -344,17 +344,42 @@ if (<span class="fragment highlight-green">div.firstChild.namespaceURI == "http:
 				</section>
 
 				<section>
-					<h1>Modernizr is not a Superhero</h1>
-					<!-- TBD: img of superhero -->
-					<aside class="notes">
-						Modernizr puts you in good shape but it's important to understand what it will not do:
+					<section>
+						<h1>Modernizr is not a Superhero</h1>
+						<!-- TBD: img of superhero -->
+						<aside class="notes">
+							Modernizr puts you in good shape but it's important to understand what it will not do:
 
-						Modernizr doesn't write our fallbacks for us, it just provides hooks so that we know when to employ them. On a complicated site with lots of modern features, we need to plan carefully for every contingency. Make sure that any combination of missing features still yields a good experience.
+							Modernizr doesn't write our fallbacks for us, it just provides hooks so that we know when to employ them. On a complicated site with lots of modern features, we need to plan carefully for every contingency. Make sure that any combination of missing features still yields a good experience.
 
-						Speaking of which, we can easily overuse Modernizr. If we find ourselves writing fallbacks like ".no-svg.no-border-image.no-url-data-uri" then we may want to revisit how complex and maintainable our code is.
+							Speaking of which, we can easily overuse Modernizr. If we find ourselves writing fallbacks like ".no-svg.no-border-image.no-url-data-uri" then we may want to revisit how complex and maintainable our code is.
 
-						Modernizr won't work without JavaScript, thus the "no-js" class on your html root so that you can tell when Modernizr wasn't able to execute and provide you with information. To be honest, I personally do not worry too much about users with JavaScript turned off because they tend to be A) an extremely small proportion of traffic, & B) power users employing NoScript. Those users are familiar with broken sites and know to selectively allow scripts to execute when sites appear unusable.
-					</aside>
+							Modernizr won't work without JavaScript, thus the "no-js" class on your html root so that you can tell when Modernizr wasn't able to execute and provide you with information. To be honest, I personally do not worry too much about users with JavaScript turned off because they tend to be A) an extremely small proportion of traffic, & B) power users employing NoScript. Those users are familiar with broken sites and know to selectively allow scripts to execute when sites appear unusable.
+						</aside>
+					</section>
+
+					<section>
+						<h2>"The Undetectables"</h2>
+						<ul>
+							<li class="fragment">Datepicker, Colorpicker</li>
+							<li class="fragment">Font Rendering</li>
+							<li class="fragment">JS Event Oddities</li>
+							<li class="fragment"><code>position: fixed;</code> on Mobile</li>
+							<li class="fragment"><a href="https://github.com/Modernizr/Modernizr/wiki/Undetectables">The Full List</a></li>
+						</ul>
+						<aside class="notes">
+							There are a few niche things that just can't be detected, either because they're not exposed to JavaScript or behavior is so buggy across platforms that you can never be sure.
+
+							- UI elements to web forms can't be detected, so Modernizr can tell you if the browser is applying built-in validation to a Time or Color input but not if it's offering a nice picker
+							- Font rendering like anti-aliasing, smoothing, & font-weight differences cannot be detected
+							- Various JavaScript event oddities, like bugs in keydown/keypress (see code.google.com/p/closure-library/source/browse/trunk/closure/goog/events/keyhandler.js) & the order and reliability of mousedown, click, mouseup, and mousedblclick. Support for the DOMContentLoaded event.
+							- Position: fixed is technically supported on some versions of Android & iOS but is actually really buggy & inconsistent
+							- The Modernizr wiki on Github maintains a complete list
+
+							You can resort to a UA-sniffing approach for most of these, for instance maintaining a whitelist of browser's with a datepicker for which you don't load your jQuery UI datepicker.
+						</aside>
+					</section>
+
 				</section>
 
 				<section>
