@@ -37,7 +37,8 @@
 			<div class="slides">
 
 				<section>
-					<h1 class="title"><span class="odd">use</span><br>
+					<h1 class="title">
+						<span class="odd">use</span><br>
 						<span>HTML5</span><br>
 						<span class="odd">&</span><br>
 						<span>CSS3</span><br>
@@ -233,9 +234,9 @@ var div = document.createElement('div');
 div.innerHTML = '&lt;svg/&gt;';
 
 if (<span class="fragment highlight-green">div.firstChild.namespaceURI == "http://www.w3.org/2000/svg"</span>) {
-	docElement.className += ' svg';
+	docElement.className += ' inlinesvg';
 	} else {
-	docElement.className += ' no-svg';
+	docElement.className += ' no-inlinesvg';
 }
 </code></pre>
 						<aside class="notes">
@@ -250,7 +251,7 @@ if (<span class="fragment highlight-green">div.firstChild.namespaceURI == "http:
 					<section>
 						<h1>Afterwards...</h1>
 						<p>index.html</p>
-<pre><code>&lt;html class=" js svg"&gt;
+<pre><code contenteditable>&lt;html class=" js inlinesvg"&gt;
 	&lt;head&gt;
 		&lt;title&gt;Awesome Website&lt;/title&gt;
 		&lt;script src="modernizr.svg.js"&gt;&lt;/script&gt;
@@ -346,7 +347,7 @@ if (<span class="fragment highlight-green">div.firstChild.namespaceURI == "http:
 				<section>
 					<section>
 						<h1>Modernizr is not a Superhero</h1>
-						<!-- TBD: img of superhero -->
+						<!-- TBD: img of superhero? -->
 						<aside class="notes">
 							Modernizr puts you in good shape but it's important to understand what it will not do:
 
@@ -360,16 +361,22 @@ if (<span class="fragment highlight-green">div.firstChild.namespaceURI == "http:
 
 					<section>
 						<h2>"The Undetectables"</h2>
+						<img src="img/the-undetectables.jpg" alt="poster from The Expendables but with quesiton marks over each face">
+						<aside class="notes">
+							There are a few niche things that just can't be detected, either because they're not exposed to JavaScript or behavior is so buggy across platforms that you can never be sure.
+						</aside>
+					</section>
+
+					<section>
+						<h2>"The Undetectables"</h2>
 						<ul>
 							<li class="fragment">Datepicker, Colorpicker</li>
 							<li class="fragment">Font Rendering</li>
 							<li class="fragment">JS Event Oddities</li>
 							<li class="fragment"><code>position: fixed;</code> on Mobile</li>
-							<li class="fragment"><a href="https://github.com/Modernizr/Modernizr/wiki/Undetectables">The Full List</a></li>
+							<li class="fragment"><a href="https://github.com/Modernizr/Modernizr/wiki/Undetectables" target="_blank">The Full List</a></li>
 						</ul>
 						<aside class="notes">
-							There are a few niche things that just can't be detected, either because they're not exposed to JavaScript or behavior is so buggy across platforms that you can never be sure.
-
 							- UI elements to web forms can't be detected, so Modernizr can tell you if the browser is applying built-in validation to a Time or Color input but not if it's offering a nice picker
 							- Font rendering like anti-aliasing, smoothing, & font-weight differences cannot be detected
 							- Various JavaScript event oddities, like bugs in keydown/keypress (see code.google.com/p/closure-library/source/browse/trunk/closure/goog/events/keyhandler.js) & the order and reliability of mousedown, click, mouseup, and mousedblclick. Support for the DOMContentLoaded event.
