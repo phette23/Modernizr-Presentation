@@ -101,9 +101,10 @@
 					<aside class="notes">
 						But all of these approaches were designed just to deal with IE running on desktop browsers. Our fundamental issue isn't IE's lack of support, it's variability between browsers.
 
-						Quick question: does Android Browser 2.3 support CSS3 gradients, the contentEditable attribute, and Inline SVG?
+						Let's say we create a site that simply must have support for CSS gradients, the contentEditable attribute, and inline SVG.
+						Quick question: will it work in Android Browser 2.3? Yes or no, just does the browser support all three features.
 						Answer: No, it supports CSS gradients but not inline SVG & CE.
-						OK 2nd question: what about iOS Safari 4.3?
+						OK a 2nd question: what about iOS Safari 4.3?
 						Answer: Nope, same support (yes to gradients, no to SVG & CE).
 
 						It's not just these browsers either: Opera Mini supports none of these three, IE8 and 7 support contentEditable but not gradients or SVG, & IE9 still doesn't have gradients. If we care about supporting as many browsers as possible—and about our own sanity—we'll be better served by a more generic means of providing fallbacks, one that can be crafted to suit browsers with varied abilities.
@@ -360,7 +361,7 @@ if (<span class="fragment highlight-green">div.firstChild.namespaceURI == "http:
 
 							Modernizr doesn't write our fallbacks for us, it just provides hooks so that we know when to employ them. On a complicated site with lots of modern features, we need to plan carefully for every contingency. Make sure that any combination of missing features still yields a good experience.
 
-							Speaking of which, we can easily overuse Modernizr. If we find ourselves writing fallbacks like ".no-svg.no-border-image.no-url-data-uri" then we may want to revisit how complex and maintainable our code is.
+							Speaking of which, we can easily overuse Modernizr. If we find ourselves writing fallbacks like ".no-inlinesvg.no-border-image.no-url-data-uri" then we may want to revisit how complex and maintainable our code is.
 
 							Modernizr won't work without JavaScript, thus the "no-js" class on your html root so that you can tell when Modernizr wasn't able to execute and provide you with information. To be honest, I personally do not worry too much about users with JavaScript turned off because they tend to be A) an extremely small proportion of traffic, & B) power users employing NoScript. Those users are familiar with broken sites and know to selectively allow scripts to execute when sites appear unusable.
 						</aside>
@@ -397,11 +398,12 @@ if (<span class="fragment highlight-green">div.firstChild.namespaceURI == "http:
 				</section>
 
 				<section>
-					<h1>Tools</h1>
+					<h1>Useful Sites</h1>
 					<ul>
 						<li><a href="http://haz.io" title="see feature support in current browser">haz.io</a></li>
 						<li><a href="http://caniuse.com/" title="compatibility tables for web standards">Can I use...</a></li>
-						<li><a href="https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills" title="Modernizr's list of polyfills">The All-In-One Entirely-Not-Alphabetical No-Bullsh*t Guide to HTML5 Fallbacks</a></li>
+						<li><a href="http://html5please.com/" title="use the new & shiny responsibly">HTML5 Please</a></li>
+						<li><a href="https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills" title="The All-In-One Entirely-Not-Alphabetical No-Bullshit Guide to HTML5 Fallbacks">HTML5 Fallbacks</a> on the Modernizr wiki</li>
 					</ul>
 				</section>
 
