@@ -31,7 +31,7 @@
     }
 
     Modernizr.load( {
-        test: Modernizr.inputtypes.email && Modernizr.input.placeholder,
+        test: Modernizr.inputtypes.email && Modernizr.input.placeholder && Modernizr.input.required,
         nope: "h5f.min.js",
         complete: function () {
             // apply HTML5 Form polyfill
