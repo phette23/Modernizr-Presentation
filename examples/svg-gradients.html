@@ -4,28 +4,30 @@
     <title>Gradients & Inline SVG Example</title>
     <link rel="stylesheet" href="normalize.css">
     <style>
-        /* nothing to see here, move along... */ body { text-align: center; font-family: "Helvetica Neue", sans-serif; } h1 { margin: .5em; } section div { height: 100px; width: 300px; margin: 0 auto; } section.svg-demo div { height: 50px; }
+        /* nothing to see here, move along... */ body { text-align: center; font-family: "Helvetica Neue", sans-serif; } h1 { margin: .5em; margin-bottom: 1.5em; } section div { height: 100px; width: 320px; margin: 0 auto; } .svg { height: 50px; } .grid { width: 100%; max-width: 900px; margin: 0 auto; } .grid:after { display: table; content: ""; clear: both; } .c1-of-2 { float: left; width: 50%; }
+
         /* gradients used if available */
-        .grad-demo div {
+        .grad {
             background: -moz-linear-gradient(top,  #f0f0f0 0%, #0f0f0f 100%); /* FF3.6+ */
             background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f0f0f0), color-stop(100%,#0f0f0f)); /* Chrome,Safari4+ */
             background: -webkit-linear-gradient(top,  #f0f0f0 0%,#0f0f0f 100%); /* Chrome10+,Safari5.1+ */
             background: -o-linear-gradient(top,  #f0f0f0 0%,#0f0f0f 100%); /* Opera 11.10+ */
             background: -ms-linear-gradient(top,  #f0f0f0 0%,#0f0f0f 100%); /* IE10+ */
             background: linear-gradient(to bottom,  #f0f0f0 0%,#0f0f0f 100%); /* W3C */
+            margin-bottom: 3em;
         }
 
         /* Modernizr fallback styles
         the .no-... styles only activate if Modernizr detects a lack of support */
-        .no-inlinesvg .svg-demo .mod {
+        .no-inlinesvg .mod .svg-wrapper {
             background: url(library.png) no-repeat 50%;
         }
-        .no-cssgradients .grad-demo .mod {
+        .no-cssgradients .mod .grad {
             background: url(gradient.png) repeat-x;
         }
 
         /* flare! */
-        .mod-title {
+        .mod h1 {
             font-variant: small-caps;
             font-family: Optima, Futura, "Gill Sans Light", "Helvetica Neue", Helvetica, Georgia, sans-serif;
             text-shadow: 2px -1px 50px red,
@@ -35,7 +37,7 @@
                 0 -7px 6px red;
         }
         /* yawn... */
-        .nfb {
+        .nfb h1 {
             font-family: "Times New Roman", Times, serif;
             color: gray;
         }
@@ -44,18 +46,13 @@
     <script src="modernizr.inlinesvg-grad.js"></script>
 </head>
 <body>
-    <article>
-        <section class="col c1of2 grad-demo">
-            <h1>CSS Gradients</h1>
-            <p class="mod-title">Modernizr</p>
-            <div class="mod"></div>
-            <p class="nfb">↓ No Fallback ↓</p>
-            <div></div>
-        </section>
-        <section class="col c1of2 svg-demo">
-            <h1>SVG</h1>
-            <p class="mod-title">Modernizr</p>
-            <div class="mod">
+    <article class="grid">
+        <section class="c1-of-2 mod">
+            <h1>Modernizr</h1>
+            <h2>CSS Gradients</h2>
+            <div class="grad"></div>
+            <h2>SVG</h2>
+            <div class="svg-wrapper">
                 <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                     x="0px" y="0px" width="47.2585px" height="50px"
                     viewBox="0 0 94.517 100"
@@ -73,8 +70,13 @@
                     c0,1.153,0.94,2.079,2.058,2.079H92.458z"/>
                 </svg>
             </div>
-            <p class="nfb">↓ No Fallback ↓</p>
-            <div>
+        </section>
+        <section class="c1-of-2 nfb">
+            <h1>&darr; No Fallback &darr;</h1>
+            <h2>CSS Gradients</h2>
+            <div class="grad"></div>
+            <h2>SVG</h2>
+            <div class="svg-wrapper">
                 <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                     x="0px" y="0px" width="47.2585px" height="50px"
                     viewBox="0 0 94.517 100"
