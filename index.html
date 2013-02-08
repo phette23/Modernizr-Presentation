@@ -68,7 +68,7 @@
 						but they're not supported in every browser</p>
 					<img alt="accidentally opened Internet Explorer, horror face" src="img/ie.png">
 					<aside class="notes">
-						Look, we all know HTML5 & CSS3 are awesome. Geolocation, CSS animations, video elements; they're awesome. So we go and design a beautiful site. It looks amazing; everything has a gradient, buttons and icons wiggle with animations. It pops up an alert every time the user sneezes. It tells them the room temperature and recommends an appropriate drink. But then...we accidentally open it in IE 8. & it's awful; the border backgrounds don't show, our gradients are crushed to flat colors, nothing's animated, it spews errors because our scripts are accessing objects that don't exist. What do we do to get around this?
+						We all know HTML5 & CSS3 are awesome. So we go and design a beautiful site. It looks amazing; everything has a gradient, our buttons wiggle with animations. It pops up an alert every time the user sneezes. It tells them the room temperature and recommends an appropriate drink. But then...we accidentally open it in IE 8. & it's awful; border backgrounds don't show, gradients are crushed to flat colors, nothing's animated, it spews errors because our scripts are accessing objects that don't exist. What do we do to get around this?
 					</aside>
 				</section>
 
@@ -88,7 +88,7 @@
 					<h1>I'm a web developer;<br>
 						I'll blame IE!</h1>
 					<aside class="notes">
-						So HTML5 & CSS3 are hardly the first new features to appear on the scene with patchy browser support. No web conference is without its IE jokes; I got mine in on the second slide. We've been working around IE quirks for decades now and we have a long history of tools to do so, from the star hack to IE conditional comments.
+						So HTML5 & CSS3 are hardly the first new features to appear on the scene with spotty browser support. No web conference is without its IE jokes; I got mine in on the second slide. We've been working around IE quirks for decades now and we have a long history of tools to do so, from the star hack to IE conditional comments.
 					</aside>
 				</section>
 
@@ -99,7 +99,7 @@
 						is Invalid</h1>
 					<img id="many-devices-1" src="img/many-devices.jpg" alt="dozens of tablets computers">
 					<aside class="notes">
-						But all of these approaches were designed just to deal with IE running on desktop browsers. Our fundamental issue isn't IE's lack of support, it's variability between browsers.
+						But these approaches were designed to deal with IE running on desktop browsers. Our fundamental issue isn't IE's lack of support, it's variability between browsers.
 
 						Let's say we create a site that simply must have support for CSS gradients, the contentEditable attribute, and inline SVG.
 						Quick question: will it work in Android Browser 2.3? Yes or no, just does the browser support all three features.
@@ -107,7 +107,7 @@
 						OK a 2nd question: what about iOS Safari 4.3?
 						Answer: Nope, same support (yes to gradients, no to SVG & CE).
 
-						It's not just these browsers either: Opera Mini supports none of these three, IE8 and 7 support contentEditable but not gradients or SVG, & IE9 still doesn't have gradients. If we care about supporting as many browsers as possible—and about our own sanity—we'll be better served by a more generic means of providing fallbacks, one that can be crafted to suit browsers with varied abilities.
+						It's not just these browsers either: Opera Mini supports none of these three, IE8 and 7 support contentEditable but not gradients or SVG, & IE9 still doesn't have gradients. If we care about supporting as many browsers as possible, we'll need a more generic means of providing fallbacks, one that can be crafted to suit different combinations of feature support.
 					</aside>
 				</section>
 
@@ -128,11 +128,11 @@
 }
 </code></pre>
 					<aside class="notes">
-						User Agent sniffing is better than IE-specific approaches in that it works for almost any browser. The basic method is to detect the User Agent and then make tactical decisions based on that information; here in this example I test the navigator.userAgent option to see if it might be Android 2.0 to 2.3 and then execute a series of fallback functions which fill in support for things like inline SVG & contentEditable.
+						User Agent sniffing is better than IE-specific approaches in that it works for almost any browser. The basic method is to detect the User Agent and then make tactical decisions based upon that info; here in this example I test navigator.userAgent to see if it might be Android 2.0 to 2.3 and then execute a couple fallback functions which fill in support for things like SVG & contentEditable.
 
-						There are a couple fundamental issues with UA sniffing. Most importantly, it presents a maintenance challenge. As new browsers appear & features are added or altered, UA string lists need to be updated. I would need several blocks of code like this, each one crafted to the particular abilities of the browser I'm trying to support. Even if we try to use a central crowdsourced repository, the mere effort of pulling down updates periodically is obnoxious. Furthermore, while there are projects that try to track all mobile device UAs, I'm not sure there's any comprehensive database of UA strings paired to features & even if there were the added delay in querying a database is a bit of extra overhead.
+						There are a couple fundamental issues with UA sniffing. Most importantly, it presents a maintenance challenge. As new browsers appear & features are added or altered, UA string lists need to be updated. I would need several blocks of code like this, each one crafted to the particular abilities of the browser I'm trying to support. While there are projects that try to track device UAs & whether or not they're considered "mobile,"" I'm not sure there's a comprehensive database of UA strings paired with features.
 
-						Secondly, UA strings are not a reliable source of information; they can be spoofed & new browsers tend to mimic old ones precisely to work around poorly written UA sniffing. While "new browsers" may not seem like a big deal—I mean, how often does a new browser come on the scene?—consider all the mobile apps that use a webkit browser window; any of those might choose its own UA string. The Twitter app on iOS uses its own UA strings despite being webkit-based browsers. While Twitter smartly builds on the traditional webkit UA string, other apps might not be so forgiving.
+						Secondly, UA strings are not a reliable source of information; they can be spoofed & new browsers tend to mimic old ones precisely to work around poorly written UA sniffing. "New browsers" may not seem like a big deal—I mean, how often does a new browser come on the scene? Google Chrome was the last one & we may not see another for awhile. But consider all the mobile apps which use a webkit browser window; any of those might choose its own UA string. The Twitter app on iOS, for instance, uses a webkit UA string but with "Twitter" appended to it. While Twitter smartly builds on the traditional webkit UA string, other apps might not be so forgiving.
 					</aside>
 				</section>
 
@@ -148,18 +148,18 @@
 
 				<section>
 					<h1>Live & Let Die</h1>
-					<p>a.k.a. "ignoring older browsers"</p>
+					<p><i>a.k.a. "ignoring older browsers"</i></p>
 					<img src="img/firefox-unsupported.png" alt="you are using an unsupported version of Firefox" class="fragment">
 					<aside class="notes">
-						Well, an increasing number of sites have opted for the "do nothing" approach of simply using modern features without any fallback, knowing that sites will break in older browsers. Google Drive is perhaps the most prominent example I've seen lately; the web app prompts us to upgrade our browser not only in IE8 but even in versions of Firefox that are a few updates behind.
+						Well, an increasing number of sites opt for the "do nothing" approach of simply using modern features without any fallback, knowing that sites will break in older browsers.
+						>>>STEP>>>
+						Google Drive is the most prominent example I've seen lately; it prompts us to upgrade our browser not only in IE8 but even in versions of Firefox that are a few updates behind.
 
-						There are some situations where this is probably fine; I think CSS border-radius is a great example of when the complication of doing a fallback outweighs its value. So some elements have sharp corners, who cares? As long as the majority of the experience is still quality then users will be OK.
+						There are some situations where employing features without fallbacks is probably fine; border-radius is a great example of when the complication of doing a fallback outweighs its value. So our buttons are rectangular, who cares? As long as the experience is still quality then users will be OK.
 
-						But many sites aren't just dropping a few rounded corners, they're leaving out _functionality_ as well. It's interesting that this is happening in the midst of the great Responsive Web Design paradigm shift which says that all devices deserve a decent experience no matter their screen width.
+						But many sites aren't just dropping a few rounded corners, they're leaving out _functionality_ as well. It's interesting that this is happening in the midst of the great Responsive Web Design paradigm shift that says all devices deserve a decent experience no matter their screen width.
 
-						Whether or not you think RWD is the right approach all the time, it's inarguably in the spirit of the web; open access to information. & not doing anything & cutting off users is a step backwards. Especially since we have the means nowadays—& I'm thinking not only of media queries, & JavaScript libraries like Modernizr, but a general development philosophy—it's never been more irresponsible to let a site break for certain users.
-
-						E.g. http://www.msvma.org/Default.aspx?pageId=1344425
+						Whether or not you think RWD is the right approach all the time, it's inarguably in the spirit of the web; open access to information. & not doing anything & cutting off users is a step backwards. Since we have the means nowadays—& I'm thinking not only of media queries & JavaScript libraries like Modernizr, but a general development philosophy—it's never been more irresponsible to let a site break for certain users.
 					</aside>
 				</section>
 
@@ -168,15 +168,15 @@
 					<p>One of the web's most popular JavaScript libraries</p>
 					<a href="http://trends.builtwith.com/javascript/Modernizr" title="Modernizr Trends | BuiltWith.com"><img src="img/builtwith-modernizr.png" alt="Modernizr usage trends from Built With"></a>
 					<aside class="notes">
-						Surprise, surprise, Modernizr is the solution we're looking for, especially in situations like the one I've been talking about where we are using a few new features that have spotty support across multiple browsers. As keeping up with devices & browsers get more difficult, & as more & more sites decide that HTML5 & CSS3 are too good to pass up, Modernizr has been growing in popularity. Its usage has almost tripled in the past year in these statistics from BuiltWith.com. It is used by almost 6% of the top 10,000 sites on the web.
+						Surprise, surprise, Modernizr is the solution we're looking for, especially in situations like the one I've been talking about where we are using a few new features that have variable support across multiple browsers. As keeping up with devices & browsers get more difficult, & as more & more sites decide that HTML5 & CSS3 are too good to pass up, Modernizr has been growing in popularity. Its usage has almost tripled in the past year in these statistics from BuiltWith.com. It is used by almost 6% of the top 10,000 sites on the web.
 
 						So what exactly is Modernizr? It's a JavaScript library that allows you to branch your site's appearance based on browser capabilities, providing an easy opportunity to fallback when necessary. In essence, you write CSS or JavaScript rules which say "if this feature is available, do X; otherwise, do Y."
 
-						It's important that Modernizr *is not* a user-agent detection library. It detects browser support for particular features but doesn't care about the browser itself. It's also very lightweight & carries no dependencies; you don't need to include a monolithic library like jQuery in order to run it. In fact, Modernizr is great for designers who don't want to bother with any other JavaScript. Overall, it's the perfect tool for the modern web developer who wants to use HTML5 & CSS3 in a responsible manner without too much overhead.
+						It's important to note that Modernizr *is not* a user-agent detection library. It detects browser support for particular features but doesn't care about the browser itself. It's also very lightweight & carries no dependencies; you don't need to include a monolithic library like jQuery in order to run it. In fact, Modernizr is great for web designers who don't want to bother with any other JavaScript. Overall, it's the perfect tool for using HTML5 & CSS3 in a responsible manner without too much overhead.
 					</aside>
 				</section>
 
-								<section>
+				<section>
 					<div class="c1-of-2">
 						<h2>With Modernizr</h2>
 <pre><code>.no-inlinesvg .svg-wrapper {
@@ -194,13 +194,13 @@
 </code></pre>
 					</div>
 					<aside class="notes">
-						If _what_ Modernizr does is great, _how_ it does it is also wonderful. Part of the reason why Modernizr is so successful, in my opinion, is the brilliance of its API. It's both quite simple so that designers who don't know a lick of JavaScript can employ it, but also provides advanced hooks for those who want to use it their web app scripting.
+						If _what_ Modernizr does is great, _how_ it does it is also wonderful. Part of the reason why Modernizr is so successful, in my opinion, is the brilliance of its API. It's both quite simple so we don't have to know a lick of JavaScript to employ it, but also provides advanced hooks for more sophisticated usage.
 
-						Essentially, you provide fallbacks by writing CSS rules for the features that aren't available; if inline SVG isn't available, this no-inlinesvg rule will kick in, replacing our SVG image with a png that all browsers can handle.
+						Essentially, we provide fallbacks by writing CSS rules for the features that aren't available; if inline SVG isn't available, this no-inlinesvg rule will kick in, replacing our SVG image with a png that all browsers can handle.
 
-						Implementing this in any other manner is both non-trivial & a maintenance nightmare; on the right I'm trying to do the same thing but with JavaScript.
+						On the right I'm trying to do the same thing but with JavaScript.
 						>>>STEP>>>
-						I have to detect the user agent—always a bad idea—then check it against a huge regular expression of browsers I know don't support SVG, then apply a style change using JavaScript. Every time a new browser appears, I have to go back & check my huge list of UAs to see if it needs updating.
+						I have to rely on the user agent, then check it against a huge regular expression of browsers which I know don't support SVG. Every time a new browser appears, I must go back & update my huge list of user agent strings.
 					</aside>
 				</section>
 
@@ -217,15 +217,17 @@
 ...
 </code></pre>
 						<aside class="notes">
-							Alright, enough preaching, let's get down to using Modernizr. As I alluded to before, part of the brilliance of Modernizr is its simplicity. We do just two things:
+							Enough preaching, let's get down to modernizing. To start, we do just 2 things:
 							>>>STEP>>>
-							add a class of "no-js" to the HTML tag, and
+							we add a class of "no-js" to the HTML tag, and
 							>>>STEP>>>
 							include the Modernizr script tag in our head.
 
-							Now, it's important to do this exactly; while you want to load most of your scripts down at the bottom of the page to avoid blocking, Modernizr needs to be at the top because a lot of your styles will be dependent upon its execution.
+							The first step relates to how Modernizr functions; it adds classes to the HTML element. But what if JavaScript is disabled & Modernizr cannot execute? Then the "no-js" class gives us with a little information; we now know that JavaScript is unavailable &, furthermore, that we can't run our feature detection tests to see what else _is_ available. Even when it can't execute, Modernizr is gives us a hook to enable fallbacks.
 
-							The first step relates to how Modernizr functions; it operates by adding classes to the HTML element. But what if JavaScript is disabled & Modernizr cannot execute? Then the "no-js" class provides us with more information; we now know that JavaScript is unavailable and, furthermore, that we can't run our feature detection tests to see what else _is_ available. Even when it can't execute, Modernizr is providing us with a hook to enable fallbacks.
+							While you usually want to load scripts down at the very bottom of the page to avoid blocking, Modernizr needs to be at the top because many of our styles will depend upon its results. If we put it at the bottom, our page might suffer from a "flash of unstyled content" as content loads without background images, Modernizr adds a slew of classes, & then suddenly a bunch of images snap into place.
+
+							↓↓↓STEP DOWN↓↓↓
 						</aside>
 					</section>
 
@@ -245,11 +247,11 @@ if (<span class="fragment highlight-green">div.firstChild.namespaceURI == "http:
 }
 </code></pre>
 						<aside class="notes">
-							Here's my own pseudo-Modernizr that I've written, just to give you an idea of the library's internal mechanics. I'll walk through this line by line but you don't have to understand the specifics of each expression to get the underlying idea.
+							Here's my own pseudo-Modernizr, to give you an idea of the library's internal mechanics. I'll walk through this but you don't have to understand the specifics of each expression to get the underlying idea.
 
-							First, Modernizr finds the root element—in most cases our HTML tag, but its written in such a generic manner that this would work on XML documents too—and it replaces the "no-js" class with "js." Why? Well, if Modernizr is running then clearly JavaScript is enabled, so it's providing us with this first piece of information.
+							First, Modernizr finds the root element—in most cases our HTML tag, but its written in such a generic manner that this would work on XML documents—& it replaces the "no-js" class with "js." Why? Well, if Modernizr is running then clearly JavaScript is enabled, so it's providing us with this first piece of info.
 
-							Then Modernizr works by running a series of feature tests and adding a certain class to the HTML tag depending upon the result of the test. Here's an example test; it borrows a little from Modernizr but isn't identical. Basically, we create a div & put an svg self-closing tag in its innerHTML. If that tag has the SVG namespaceURI, then SVG is supported and we add the "svg" class to the HTML tag. If not, then we add the no-svg class.
+							Then Modernizr runs a series of feature tests and adds a certain class to the HTML tag depending upon the result of the test. Here's an example test; it borrows a little from Modernizr but isn't identical. Basically, we create a div & put an svg tag in its innerHTML. If that tag has the SVG namespaceURI, then SVG is supported & we add the "svg" class to the HTML tag. If not, we add the no-svg class.
 						</aside>
 					</section>
 
@@ -273,12 +275,12 @@ if (<span class="fragment highlight-green">div.firstChild.namespaceURI == "http:
 						</div>
 						<p class="fragment">Let's see <a href="examples/svg-gradients.html" target="_blank">an example</a>.</p>
 						<aside class="notes">
-							The end result is just a different set of classes on the HTML element. If the browser supports inline SVG, we'll get an "inlinesvg" class on the HTML tag; if not, it'll be "no-inlinesvg." The class names are always formatted this way; either "feature name" or "no hyphen feature name" so you never have to think too hard about what to name your classes.
+							The end result is just a different set of classes on the HTML element. If the browser supports inline SVG, we'll get an "inlinesvg" class on the HTML tag; if not, it'll be "no-inlinesvg." The class names are always formatted this way; either "feature name" or "no hyphen feature name," so you never have to think too hard about what to use in your CSS selectors.
 
 							>>>STEP>>>
-							This naming convention makes it easy to write fallback rules in our CSS. These three CSS selectors cover all our possible situations. If SVG is available, the first rule just makes sure that our SVG element is displayed. If we don't have SVG around, we put up a background-image in its place. This image could just be the PNG export from Inkscape or Adobe Illustrator of our SVG file. Finally, if JavaScript is disabled & Modernizr didn't execute we can't be sure about the browser capabilities so, just to be safe, we use the background image.
+							These two selectors cover all our possible situations. If SVG is available, the first rule just makes sure that our SVG element is displayed. If we don't have SVG around, we put up a background-image in its place. This image could just be the PNG export from Inkscape or Adobe Illustrator of our SVG file. Finally, if JavaScript is disabled & Modernizr didn't execute we can't be sure about the browser capabilities so, just to be safe, we use the background image.
 
-							I hope now everyone sees why Modernizr is so excellent. We didn't need to write a lick of JavaScript to provide what are essentially two branches of our CSS. Browsers will now receive an experience appropriate to their capabilities & we don't need to update a User Agent list to keep our fallback in place.
+							I hope now everyone sees why Modernizr is so excellent. We didn't need to write a line of JavaScript to provide what are essentially two branches of our site's appearance. Browsers now receive an experience appropriate to their capabilities & we don't need to update a User Agent list to keep our fallback in place; this will work forever & as more browsers support SVG our fallback will be used less & less.
 
 							>>>CLICK>>>
 							So far, I've shown you code samples in my slides but let's see an actual example in a couple different browsers.
@@ -292,12 +294,14 @@ if (<span class="fragment highlight-green">div.firstChild.namespaceURI == "http:
 <pre class="fragment"><code>&lt;html lang="en" xml:lang="en" class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths cufon-active cufon-ready"&gt;
 </code></pre>
 					<aside class="notes">
-						It's important to always use a custom Modernizr build that tests just for the features we need. Running the entire Modernizr development build is very bad practice; first of all, it will download a lot of unnecessary bytes as all the tests are included in the library. Secondly, it'll take more time to execute all the tests, slowing down your site a bit. Modernizr is a lightning-fast library so this isn't fatal but it's completely avoidable.
+						It's important to use a custom Modernizr build that tests just for the features we need. Running the entire Modernizr development build is very bad practice; first of all, it will download a lot of unnecessary bytes as all the tests are included in the library. Secondly, it'll take more time to execute all the tests. Modernizr is a lightning-fast library so this isn't fatal but it's completely avoidable.
 
 						>>>STEP>>>
-						If we do include the whole library, we'll also end up with dozens of classes strung off our html tag which can cause conflicts. This is an example from an actual, production website that's including the whole library for no particular reason. It's not just that this is the ugliest looking HTML tag I've ever seen, it's that a lot of the feature tests add rather generic classes that might be used elsewhere like "audio", "video," "canvas," and "history." If we have a large team working on our website, everyone would need to be aware that these are unsafe class names.
+						If we do include the whole library, we'll also end up with dozens of classes strung off our HTML tag. This is an example from an actual, production website that's including the whole library for no particular reason. It's not just that this is the ugliest looking HTML tag I've ever seen, it's that a lot of the feature tests add rather generic classes that might be used elsewhere like "audio", "video," "canvas," and "history." If we have a large team working on our website, everyone would need to be aware that these are unsafe class names.
 
-						Incidentally, the Modernizr download builder lets you choose to prefix all the class names, a great option if we're uncertain that someone hasn't already used on these generic classes somewhere on our site. In fact, let's take a look at the download builder now.
+						Incidentally, the Modernizr download builder lets us choose to prefix all the class names, a great option if we're uncertain that someone hasn't already used on these generic classes somewhere on our site. So if we are going to be ridiculous & include the entire library, we can make every class bear prefix "mod-" to reduce conflicts.
+
+						Let's take a look at the download builder now.
 					</aside>
 				</section>
 
@@ -305,20 +309,19 @@ if (<span class="fragment highlight-green">div.firstChild.namespaceURI == "http:
 					<h2>Choices, Choices...</h2>
 					<a href="http://modernizr.com/download/" title="Modernizr download choices"><img src="img/modernizr-opts.png" alt="all the checkboxes on the Modernizr build screen"></a>
 					<aside class="notes">
-						Modernizr provides dozens upon dozens of tests; pick your favorites! Here we're selecting only our CSS gradients and inline SVG because that's all we need. We'll get a nice, trim build that only downloads & runs the code for those two tests. We've also prefixed the build with "mod-" so that we don't unintentionally impact any existing classes.
+						Modernizr provides dozens of tests. Here we're selecting only our CSS gradients and inline SVG because that's all we need. We'll get a nice, trim build that only downloads & runs the code for those two tests.
 
-						The default built screen shows a couple sections for CSS3, HTML5, and miscellany like SVG support. But there's a huge sub-section under that "Non-core detects" drop-down which includes tests for things like contentEditable & JSON. If we can't find what you're looking for initially, chances are it's one of the non-core detects and Modernizr will still be able to help us out.
+						The default build screen shows a few sections for CSS3, HTML5, and miscellany like SVG support. But there's a huge sub-section under that "Non-core detects" drop-down which includes tests for things like contentEditable & JSON. If we can't find what we're looking for initially, chances are it's one of the non-core detects and Modernizr will still be able to help us out.
 
-						Finally, it's worth noting that by default Modernizr include the HTML5 Shiv, a short & simple script that lets you style the HTML5 elements like article & section in Internet Explorer.
+						Finally, it's worth noting that by default Modernizr includes the HTML5 Shiv, a short script that lets you style the HTML5 elements like article, aside, & section in Internet Explorer.
 					</aside>
 				</section>
 
 				<section>
 					<h1>Polyfills</h1>
-					<!-- img? -->
 					<aside class="notes">
-						Polyfills are JavaScript libraries that replace modern features. Essentially, they try to emulate or replace missing functionality so that users in older browsers have a comparable experience.
-						Modernizr is designed with polyfills in mind, because a lot of the time a mere CSS fork is not enough to preserve the user experience.
+						Polyfills are JavaScript libraries that replace modern features. Essentially, they emulate or replace missing functionality so that users in older browsers have a comparable experience.
+						Modernizr is designed with polyfills in mind, because a lot of the time a mere CSS fork is not enough to preserve the user experience. My examples before were a bit easy—background images easily filled in. But no background image on the planet can replace lack of geolocation support, for instance.
 					</aside>
 				</section>
 
@@ -341,29 +344,29 @@ if (<span class="fragment highlight-green">div.firstChild.namespaceURI == "http:
 ]);
 </code></pre>
 					<p class="fragment">Let's see <a href="examples/form.html" title="HTML5 form with Modernizr" target="_blank">a more complex example</a>.</p>
+
 					<aside class="notes">
-						You probably didn't notice the "Modernizr.load" checkbox on the download builder, hidden amongst the plethora of options. Modernizr.load is the library's own built-in script loader that you can use to seamlessly load your polyfills based upon the results of its tests. Essentially, you specify a Modernizr test & then, if it's false, the resources under the "nope" parameter are loaded.
+						Modernizr comes with a built-in script loader which we can use to seamlessly load our polyfills based upon the results of its tests. Essentially, we specify a Modernizr test & then, if it's false, the resources listed next to "nope" are loaded.
 
 						>>>STEP>>>
-						It can get a lot more complex than that, in fact Modernizr.load is its own separate JavaScript library known as yepnope. You can do some pretty complex things, from specifying multiple tests, to loading arrays of resources, to executing a function upon completed loading. I personally have yet to come across a use case that's as complex as this one, which I stole from the Modernizr documentation, but if we're developing full-fledged HTML5 apps this sort of routine would be fairly common.
+						It can get a lot more complex than that, in fact Modernizr.load is its own separate JavaScript library known as yepnope. We can do some pretty complex things, from specifying multiple tests, to loading arrays of resources, to executing a function upon completed loading. I personally have yet to come across a use case that's as complex as this one, which I stole from the Modernizr documentation, but if for a full-fledged HTML5 app this sort of routine would be fairly common.
 
 						>>>CLICK>>>
-						Here's a much more sophisticated example that polyfills several of HTML5's incredibly useful form features such as the new attributes and input types.
+						Let's look at a more sophisticated example. We're going to polyfill some of my favorite HTML5 features; the incredibly useful new form types & attributes.
 					</aside>
 				</section>
 
 				<section>
 					<section>
 						<h1>Modernizr is not a Superhero</h1>
-						<!-- TBD: img of superhero? -->
+						<pre class="fragment"><code class="css"><del>.no-inlinesvg.no-border-image.no-url-data-uri { dont: dothis; }</del></code></pre>
 						<aside class="notes">
-							Modernizr puts you in good shape but it's important to understand what it will not do:
+							Modernizr puts you in good shape but it's important to understand what it will _not_ do:
 
-							Modernizr doesn't write our fallbacks for us, it just provides hooks so that we know when to employ them. On a complicated site with lots of modern features, we need to plan carefully for every contingency. Make sure that any combination of missing features still yields a good experience.
+							Modernizr doesn't write our fallbacks for us, it just provides hooks so that we know when to employ them. On a complicated site with lots of modern features, we need to make sure that any combination of missing features still yields a good experience.
 
-							Speaking of which, we can easily overuse Modernizr. If we find ourselves writing fallbacks like ".no-inlinesvg.no-border-image.no-url-data-uri" then we may want to revisit how complex and maintainable our code is.
-
-							Modernizr won't work without JavaScript, thus the "no-js" class on your html root so that you can tell when Modernizr wasn't able to execute and provide you with information. To be honest, I personally do not worry too much about users with JavaScript turned off because they tend to be A) an extremely small proportion of traffic, & B) power users employing NoScript. Those users are familiar with broken sites and know to selectively allow scripts to execute when sites appear unusable.
+							>>>STEP>>>
+							We can easily overuse Modernizr. If we find ourselves writing fallbacks like ".no-inlinesvg.no-border-image.no-url-data-uri" then we may want to revisit how complex and maintainable our code is.
 						</aside>
 					</section>
 
@@ -371,27 +374,26 @@ if (<span class="fragment highlight-green">div.firstChild.namespaceURI == "http:
 						<h2>"The Undetectables"</h2>
 						<img src="img/the-undetectables.jpg" alt="poster from The Expendables but with quesiton marks over each face">
 						<aside class="notes">
-							There are a few niche things that just can't be detected, either because they're not exposed to JavaScript or behavior is so buggy across platforms that you can never be sure.
+							There are a few niche things that just cannot be detected, either because they're not exposed to JavaScript or behavior is so spectacularly buggy across platforms that even Modernizr can never be sure.
 						</aside>
 					</section>
 
 					<section>
 						<h2>"The Undetectables"</h2>
 						<ul>
-							<li class="fragment">Datepicker, Colorpicker</li>
+							<li>Datepicker, Colorpicker</li>
 							<li class="fragment">Font Rendering</li>
-							<li class="fragment">JS Event Oddities</li>
 							<li class="fragment"><code>position: fixed;</code> on Mobile</li>
 							<li class="fragment"><a href="https://github.com/Modernizr/Modernizr/wiki/Undetectables" target="_blank">The Full List</a></li>
 						</ul>
 						<aside class="notes">
 							- UI elements to web forms can't be detected, so Modernizr can tell you if the browser is applying built-in validation to a Time or Color input but not if it's offering a nice picker
+							>>>STEP>>>
 							- Font rendering like anti-aliasing, smoothing, & font-weight differences cannot be detected
-							- Various JavaScript event oddities, like bugs in keydown/keypress (see code.google.com/p/closure-library/source/browse/trunk/closure/goog/events/keyhandler.js) & the order and reliability of mousedown, click, mouseup, and mousedblclick. Support for the DOMContentLoaded event.
-							- Position: fixed is technically supported on some versions of Android & iOS but is actually really buggy & inconsistent
+							>>>STEP>>>
+							- Position: fixed is technically supported on some recent but current versions of Android & iOS Safari, like Android 2.3 & Safari 5-6, but is very buggy
+							>>>STEP>>>
 							- The Modernizr wiki on Github maintains a complete list
-
-							You can resort to a UA-sniffing approach for most of these, for instance maintaining a whitelist of browser's with a datepicker for which you don't load your jQuery UI datepicker.
 						</aside>
 					</section>
 
@@ -401,10 +403,17 @@ if (<span class="fragment highlight-green">div.firstChild.namespaceURI == "http:
 					<h1>Useful Sites</h1>
 					<ul>
 						<li><a href="http://haz.io" title="see feature support in current browser">haz.io</a></li>
-						<li><a href="http://caniuse.com/" title="compatibility tables for web standards">Can I use...</a></li>
+						<li><a href="http://caniuse.com/" title="compatibility tables for web standards">Can I Use...</a></li>
 						<li><a href="http://html5please.com/" title="use the new & shiny responsibly">HTML5 Please</a></li>
 						<li><a href="https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills" title="The All-In-One Entirely-Not-Alphabetical No-Bullshit Guide to HTML5 Fallbacks">HTML5 Fallbacks</a> on the Modernizr wiki</li>
 					</ul>
+
+					<aside class="notes">
+						- haz.io shows us the current browser's abilities in Modernizr, it basically just displays a nice list of the global Modernizr object's contents
+						- Can I Use displays compatibility tables for many features & browsers. It's a great place to go to decide if a feature is mature enough to use at all, or whether you even need to provide a fallback
+						- Similarly, HTML5 Please gives concise advice on which modern features are usable & how you should polyfill lack of support
+						- Finally, the Modernizr wiki lists polyfills for pretty much every features in their "All-In-One Entirely-Not-Alphabetical No-BS Guide to HTML5 Fallbacks"
+					</aside>
 				</section>
 
 				<section>
