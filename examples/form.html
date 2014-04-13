@@ -1,0 +1,62 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <title>HTML5 Form Example</title>
+    <style> body { font-size: 2em; } h1 { color: pink; text-shadow: 1px 1px black; margin: 0; } h2 { color: lavender; text-shadow: 1px 1px black; } input { height: 2em; width: 20em; margin-bottom: 1.5em; } input[type=time], input[type=submit] { width: auto; } fieldset { max-width: 20em; } #errors { color: red; } .invalid, .invalid-time { border: 1px solid red; } </style>
+    <!-- Modernizr input tests only, these don't add classes to HTML tag -->
+    <script src="modernizr.inputs.js"></script>
+</head>
+<body>
+    <form method="get" action="form.html" id="signup">
+        <fieldset>
+            <hgroup>
+                <h1>Ugly Sign-Up Form</h1>
+                <h2>For An Awesome Event</h2>
+            </hgroup>
+            <label for="name">Your Name:</label><br>
+            <input type="text" name="name" required placeholder="Jean-Claude Van Damme" title="name" id="su-name"><br>
+            <label for="email">Email:</label><br>
+            <input type="email" name="email" required placeholder="jean@mylibrary.edu" title="email" id="su-email"><br>
+            <label for="time">What time would be convenient?</label><br>
+            <input type="time" name="time" required title="time" id="su-time"><input type="submit" value="Sign Up" />
+            <div id="errors"></div>
+        </fieldset>
+    </form>
+
+    <!-- this is the special sauce -->
+    <script>
+    var d = document;
+    function $( id ) {
+        return d.getElementById( id );
+    }
+
+    Modernizr.load( {
+        test: Modernizr.inputtypes.email && Modernizr.input.placeholder && Modernizr.input.required,
+        nope: "h5f.min.js",
+        complete: function () {
+            // apply HTML5 Form polyfill
+            // see github.com/ryanseddon/H5F
+            H5F.setup( $( 'signup' ), {
+                invalidClass: 'invalid'
+            } );
+        }
+    } );
+
+    // my own time polyfill, just validates input no nice time picker
+    if ( !Modernizr.inputtypes.time ) {
+        d.forms[ 'signup' ].onsubmit = checkTimeVal;
+    }
+    function checkTimeVal ( event ) {
+        var suTime = $( 'su-time' ),
+            timeVal = suTime.value,
+            // NOTE: use with caution, I suck at regex
+            timeFormat = /^((0[0-9])|(1[0-2])):[0-5][0-9]( (A|P)M)$/i;
+        if ( !timeVal.match( timeFormat ) ) {
+            suTime.className += " invalid-time";
+            $( 'errors' ).innerHTML = "Please provide a time in the format HH:MM AM or PM.";
+            event.preventDefault();
+        }
+    }
+    </script>
+</body>
+</html>
